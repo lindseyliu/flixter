@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Flixter</string>
+    <string name="title_key">original_title</string>
+    <string name="overview_key">overview</string>
+    <string name="release_date_key">release_date</string>
+    <string name="rate_key">rate</string>
+    <string name="backdrop_key">backdrop_path</string>
+    <item type="id" name="view_holder"/>
+    <item type="id" name="position"/>
+
+</resources>
