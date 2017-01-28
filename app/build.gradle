@@ -38,4 +38,5 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.android.support:support-v4:24.2.1'
     compile files('libs/YouTubeAndroidPlayerApi.jar')
+    compile 'com.squareup.okhttp3:okhttp:3.3.0'
 }
