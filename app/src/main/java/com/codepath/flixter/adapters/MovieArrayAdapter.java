@@ -64,7 +64,7 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
                 backDropVH.image.setTag(R.id.position, position);
                 Picasso.with(getContext()).load(movie.getBackdropPath())
                         .fit().centerInside()
-                        .placeholder(R.drawable.poster_placeholder).into(backDropVH.image);
+                        .placeholder(R.drawable.placeholder_backdrop).into(backDropVH.image);
                 break;
             case TYPE_LOW_RATE:
                 // view lookup cache
@@ -84,11 +84,11 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
                 if (isPortrait) {
                     Picasso.with(getContext()).load(movie.getPosterPath()).resize(300, 0)
                             .onlyScaleDown()
-                            .placeholder(R.drawable.poster_placeholder).into(movieVH.image);
+                            .placeholder(R.drawable.placeholder_poster).into(movieVH.image);
                 } else {
                     Picasso.with(getContext()).load(movie.getBackdropPath()).resize(500, 0)
                             .onlyScaleDown()
-                            .placeholder(R.drawable.poster_placeholder).into(movieVH.image);
+                            .placeholder(R.drawable.placeholder_backdrop).into(movieVH.image);
                 }
                 break;
             default:
@@ -124,14 +124,17 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
 
         @OnClick(R.id.image)
         void goToDetail(View view) {
+            //use parcelable, not serializable
             Intent i = new Intent(getContext(), MovieDetailActivity.class);
             Movie movieItem = getItem((Integer)view.getTag(R.id.position));
             Bundle bundle = new Bundle();
-            bundle.putString("original_title", movieItem.getOriginalTitle());
-            bundle.putString("overview", movieItem.getOverview());
-            bundle.putString("release_date", movieItem.getReleaseDate());
-            bundle.putDouble("rate", movieItem.getRate());
-            bundle.putString("backdrop_path", movieItem.getBackdropPath());
+            bundle.putString(String.valueOf(R.string.title_key), movieItem.getOriginalTitle());
+            bundle.putString(String.valueOf(R.string.overview_key), movieItem.getOverview());
+            bundle.putString(String.valueOf(R.string.release_date_key), movieItem.getReleaseDate());
+            bundle.putFloat(String.valueOf(R.string.rate_key), movieItem.getRate());
+            bundle.putString(String.valueOf(R.string.backdrop_key), movieItem.getBackdropPath());
+            bundle.putInt("id", movieItem.getId());
+
             i.putExtras(bundle);
 
             getContext().startActivity(i);
@@ -151,13 +154,14 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
             Intent i = new Intent(getContext(), MovieDetailActivity.class);
             Movie movieItem = getItem((Integer)view.getTag(R.id.position));
             Bundle bundle = new Bundle();
-            bundle.putString("original_title", movieItem.getOriginalTitle());
-            bundle.putString("overview", movieItem.getOverview());
-            bundle.putString("release_date", movieItem.getReleaseDate());
-            bundle.putDouble("rate", movieItem.getRate());
-            bundle.putString("backdrop_path", movieItem.getBackdropPath());
-            i.putExtras(bundle);
+            bundle.putString(String.valueOf(R.string.title_key), movieItem.getOriginalTitle());
+            bundle.putString(String.valueOf(R.string.overview_key), movieItem.getOverview());
+            bundle.putString(String.valueOf(R.string.release_date_key), movieItem.getReleaseDate());
+            bundle.putFloat(String.valueOf(R.string.rate_key), movieItem.getRate());
+            bundle.putString(String.valueOf(R.string.backdrop_key), movieItem.getBackdropPath());
+            bundle.putInt("id", movieItem.getId());
 
+            i.putExtras(bundle);
             getContext().startActivity(i);
         }
     }

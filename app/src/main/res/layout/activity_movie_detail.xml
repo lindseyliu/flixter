@@ -12,10 +12,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.codepath.flixter.MovieDetailActivity">
 
-    <ImageView
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/trailer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/image"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +31,13 @@
         tools:text="Release Date: 2017-01-01"
         android:id="@+id/release_date"/>
 
-
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5"
+        tools:rating="2.5" />
 
     <TextView
         android:layout_width="wrap_content"

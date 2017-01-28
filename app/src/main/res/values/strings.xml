@@ -3,8 +3,10 @@
     <string name="title_key">original_title</string>
     <string name="overview_key">overview</string>
     <string name="release_date_key">release_date</string>
-    <string name="rate_key">rate</string>
+    <string name="rate_key">vote_average</string>
     <string name="backdrop_key">backdrop_path</string>
+    <string name="poster_key">poster_path</string>
+    <string name="release_date_prefix">Release Date: </string>
     <item type="id" name="view_holder"/>
     <item type="id" name="position"/>
 
