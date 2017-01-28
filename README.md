@@ -50,7 +50,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 - [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
 - [Picasso](http://square.github.io/picasso/) - Image loading and caching library for Android
-- [ButterKnife]
+- [ButterKnife](https://github.com/JakeWharton/butterknife) - Field and method binding for Android views
 - [RetroLambda]
 
 ## License
